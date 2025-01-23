@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta information for character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title -->
+    <title>Projects</title>
+
+    <!-- Linking external CSS file -->
+    <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+
+    <!-- Navigation bar (fixed at the top of the page) -->
+    <div class="nav">
+        <!-- Main title with a link to the homepage -->
+        <div class="CesarGustafsson">
+            <a href="index.html">CESAR GUSTAFSSON</a>
+        </div>
+
+        <!-- Navigation links -->
+        <div class="nav-links">
+            <a href="index.html" class="About">ABOUT</a>
+            <a href="projects.html" class="Projects">PROJECTS</a>
+        </div>
+    </div>
+
+    <!-- Main project content container -->
+    <div class="LandingPage">
+
+        <!-- First project: Poster Design for UN Day -->
+        <div class="main-content">
+            <div class="text-content">
+                <h1>POSTER</h1>
+                <p>This was a school project created for the UN Day, where we designed posters to promote the seminar. 
+                    I chose to work in the Bauhaus style to convey a sense of seriousness and innovation, qualities associated with the UN. 
+                    To capture attention, I incorporated bold colors and geometric shapes while maintaining a consistent structure.
+                <br><br>
+                    I aimed for a dynamic composition by carefully placing text and elements in a crossing layout, 
+                    enhancing the visual movement and reinforcing the Bauhaus aesthetic.
+                </p>
+            </div>
+            <!-- Downloadable PDF and AI poster -->
+            <div class="image-content">
+                <a id="poster-download">
+                    <img src="bilderochfiler/poster.jpg" alt="Poster image">
+                </a>
+            </div>
+        </div>
+
+        <!-- Divider between first and second project -->
+        <hr class="divider">
+
+        <!-- Second project: CPR Council (Figma Prototype) -->
+        <div class="main-content">
+            <div class="text-content">
+                <h1>CPR COUNCIL</h1>
+                <p>This project focused on designing a prototype for Hjärtstartarregistret, a government service that helps users locate nearby defibrillators. 
+                    Since our program covers a broad range of topics, I’m not yet a Figma expert, 
+                    but I see room for growth and have developed a strong interest in the tool, as I enjoy design.
+                <br><br>
+                    I aimed for consistency by maintaining uniform border radius, stroke, colors, and layout wherever possible, 
+                    making the interface more predictable and user-friendly.
+                <br><br>
+                    You can check out the official service here: <a href="https://www.hjartstartarregistret.se/#/" target="_blank">hjartstartarregistret.se</a> to compare with my approach.
+                </p>
+            </div>
+            <!-- Link to the Figma prototype -->
+            <div class="image-content">
+                <a href="https://www.figma.com/design/7uMldE2ILGUVZcZvle8AqC/Fixed-temporarily-HLR-quiz?node-id=0-1&t=mbxs1Eo0UiTieRYc-1" target="_blank">
+                    <img src="bilderochfiler/hlr.png" alt="HLR Poster">
+                </a>
+            </div>
+        </div>
+
+        <!-- Divider between second and third project -->
+        <hr class="divider">
+
+        <!-- Third project: Yappy Bird (Voice-Controlled Flappy Bird Game) -->
+        <div class="main-content">
+            <div class="text-content">
+                <h1>YAPPY BIRD</h1>
+                <p>In this pair project, we developed a voice-controlled Flappy Bird clone using JavaScript, HTML, and CSS. Instead of tapping, 
+                    players produce sounds, like claps or whistles, to make the bird flap, creating a unique and engaging interaction.
+                <br><br>
+                    We designed pixelated visuals similar to the original game to leverage affordances and recognition, making it instantly familiar. 
+                    To enhance discoverability, we ensured real-time feedback through visual and audio cues, reinforcing the connection between input and action.
+                </p>
+            </div>
+            <!-- Flappy Bird game preview -->
+            <div class="image-content yappy-image">
+                <img src="bilderochfiler/flappy_bird.png" alt="Flappy Bird image">
+            </div>
+        </div>
+
+        <!-- Contact section with social media links -->
+        <div class="contact-group">
+            <div class="Contact">CONTACT</div>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/cesar-g-b08634289" target="_blank">
+                    <img class="social-icon" src="bilderochfiler/linkedin.png" alt="LinkedIn icon">
+                </a>
+                <a href="mailto:cesargalindo873@gmail.com">
+                    <img class="social-icon" src="bilderochfiler/email.png" alt="Mail icon">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to add a scroll effect to the navbar -->
+    <script>
+        document.addEventListener("scroll", function () {
+            const nav = document.querySelector(".nav");
+            if (window.scrollY > 0) {
+                nav.classList.add("scrolled");
+            } else {
+                nav.classList.remove("scrolled");
+            }
+        });
+
+        // Funktion för att ladda ner både PDF och AI-fil
+        function downloadPosterFiles() {
+            const files = [
+                "bilderochfiler/annotated-galindo_cesar_Poster_bauhaus-1.pdf",
+                "bilderochfiler/galindo_cesar_Poster_bauhaus.ai"
+            ];
+
+            files.forEach(file => {
+                const link = document.createElement("a"); // Skapa en osynlig länk
+                link.href = file;
+                link.download = file.split("/").pop(); // Sätt filnamn
+                document.body.appendChild(link);
+                link.click(); // Starta nedladdning
+                document.body.removeChild(link); // Ta bort länken efter nedladdning
+            });
+        }
+
+        // Lägg till event listener på posterbilden
+        document.getElementById("poster-download").addEventListener("click", function (event) {
+            event.preventDefault(); // Förhindra standardbeteendet
+            downloadPosterFiles(); // Kör funktionen för att ladda ner filerna
+        });
+    </script>
+
+</body>
+</html>

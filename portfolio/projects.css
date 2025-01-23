@@ -1,0 +1,253 @@
+/* Importing Montserrat font with different weights */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./montserrat/Montserrat-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./montserrat/Montserrat-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./montserrat/Montserrat-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./montserrat/Montserrat-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+/* Global styles */
+body {
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    font-family: 'Montserrat', sans-serif; /* Sets Montserrat as the main font */
+    background-color: white; /* Background color */
+    display: flex; /* Enables flexbox */
+    justify-content: center; /* Centers content horizontally */
+    align-items: flex-start; /* Aligns items to the top */
+    flex-direction: column; /* Stacks items vertically */
+    overflow-y: scroll; /* Enables vertical scrolling */
+}
+
+/* Main landing page container */
+.LandingPage {
+    width: 100%; /* Full width */
+    max-width: 1280px; /* Limits max width */
+    margin: 0 auto; /* Centers the container */
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Stacks elements vertically */
+    align-items: center; /* Centers content horizontally */
+    margin-top: 180px; /* Adds spacing from the top */
+}
+
+/* Navigation bar */
+.nav {
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Stacks elements vertically */
+    align-items: center; /* Centers navigation items */
+    position: fixed; /* Fixes navigation at the top */
+    top: 0; /* Aligns navigation to the top */
+    width: 100%; /* Full width */
+    background-color: white; /* Sets background color */
+    padding-bottom: 20px; /* Adds padding at the bottom */
+    padding-top: 20px; /* Adds padding at the top */
+    justify-content: center; /* Centers navigation links */
+    z-index: 1000; /* Ensures navbar stays on top */
+    border-bottom: 0; /* Removes border by default */
+}
+
+/* Adds a bottom border to the navbar when scrolling */
+.nav.scrolled {
+    border-bottom: 1px solid #D3D3D3; /* Adds a light grey border */
+}
+
+/* Main heading (Name in Navbar) */
+.CesarGustafsson {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 42px; /* Large font size */
+    color: black; /* Text color */
+    margin-bottom: 30px; /* Adds spacing below */
+    margin-top: 40px; /* Adds spacing above */
+    text-decoration: none; /* Removes underline */
+    text-align: center; /* Centers text */
+}
+
+/* Ensures navigation links maintain color */
+.CesarGustafsson a {
+    text-decoration: none; /* Removes underline */
+    color: black;
+}
+
+/* Navigation links */
+.nav-links {
+    display: flex; /* Enables flexbox */
+    gap: 20px; /* Adds spacing between links */
+    justify-content: center; /* Centers navigation items */
+}
+
+/* Styling for navigation links */
+.nav-links a {
+    font-size: 13px; /* Smaller font size */
+    font-weight: 500; /* Medium font weight */
+    color: black; /* Text color */
+    text-decoration: none; /* Removes underline */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for navigation links */
+.nav-links a:hover {
+    color: #757575; /* Changes color on hover */
+    transform: scale(1.1); /* Slightly enlarges text */
+}
+
+/* Main project section */
+.main-content {
+    display: flex; /* Enables flexbox */
+    justify-content: center; /* Centers items horizontally */
+    align-items: flex-start; /* Aligns items to the top */
+    margin: 40px 0; /* Adds vertical spacing */
+    gap: 40px; /* Adds spacing between text and images */
+}
+
+/* Text content styling */
+.text-content {
+    flex: 1; /* Takes up equal space */
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Stacks text vertically */
+    justify-content: flex-start; /* Aligns text to the top */
+    align-items: flex-start; /* Aligns text to the left */
+    max-width: 500px; /* Limits max width */
+}
+
+/* Project titles */
+.text-content h1 {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 55px; /* Large font size */
+    color: black;
+    margin-bottom: 20px; /* Spacing below */
+}
+
+/* Project descriptions */
+.text-content p {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 16px; /* Readable font size */
+    color: black;
+    line-height: 1.5; /* Improves readability */
+}
+
+/* Image container */
+.image-content {
+    flex: 1; /* Takes up equal space */
+    display: flex; /* Enables flexbox */
+    justify-content: center; /* Centers images */
+    align-items: center; /* Aligns images to center */
+    max-width: 320px; /* Limits image width */
+    width: 100%; /* Ensures responsiveness */
+}
+
+/* Image styling */
+.image-content img {
+    width: 100%; /* Ensures images scale properly */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 3px; /* Rounded corners */
+}
+
+/* Contact section */
+.contact-group {
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center; /* Centers content */
+    text-align: center; /* Aligns text in center */
+    margin-top: 53px; /* Adds spacing above */
+}
+
+/* Contact heading */
+.Contact {
+    font-size: 14px;
+    font-weight: 500;
+    color: #9E9E9E; /* Grey color */
+    margin-top: 43px; /* Adds spacing above */
+    margin-bottom: 10px; /* Adds spacing below */
+}
+
+/* Social media icons container */
+.social-icons {
+    display: flex; /* Enables flexbox */
+    gap: 5px; /* Adds spacing between icons */
+}
+
+/* Styling for social media icons */
+.social-icon {
+    width: 22px; /* Sets width */
+    height: 22px; /* Sets height */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for social media icons */
+.social-icon:hover {
+    transform: scale(1.2); /* Enlarges icon */
+}
+
+/* Adds spacing between multiple main content sections */
+.main-content + .main-content {
+    margin-top: 150px;
+}
+
+/* Divider line between projects */
+.divider {
+    width: 50%; /* Limits width */
+    border: none; /* Removes default border */
+    border-top: 1px solid #D3D3D3; /* Adds a grey top border */
+    margin: 50px 0; /* Adds spacing above and below */
+    border-radius: 2px; /* Slightly rounded edges */
+}
+
+/* Adjusts Y-position for Yappy Bird image */
+.yappy-image {
+    margin-top: 110px; /* Moves the image lower */
+}
+
+/* Adds a black 1px border ONLY to hlr.png */
+.image-content img[src="bilderochfiler/hlr.png"] {
+    border: 1px solid black;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column; /* Stacks elements vertically */
+        align-items: center; /* Centers text and image */
+        padding: 0 5px; /* Adds small padding on sides */
+        gap: 10px; /* Reduces spacing */
+    }
+
+    .nav {
+        padding-top: 0px; /* Reduces top padding */
+    }
+
+    .text-content, .image-content {
+        max-width: 320px; /* Ensures consistency in width */
+        width: 100%;
+    }
+
+    .text-content h1 {
+        font-size: 24px; /* Reduces title font size */
+        margin-bottom: 10px; /* Reduces spacing */
+    }
+
+    .text-content p {
+        font-size: 14px; /* Reduces paragraph font size */
+    }
+}
