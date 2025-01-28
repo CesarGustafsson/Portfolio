@@ -170,7 +170,7 @@ body {
 /* Ensure the contact section is centered */
 .contact-group {
     position: fixed;
-    bottom: 0;
+    bottom: -10px;
     left: 0;
     width: 100%;
     background-color: white; /* Behåll bakgrundsfärgen för synlighet */
@@ -180,7 +180,7 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 1000; /* Säkerställer att det är över andra element */
-    margin-bottom: -50px;
+    
 }
 
 
