@@ -248,11 +248,9 @@ body {
         text-align: center;
     }
 
-    .play-button-container {
-        
-        padding-bottom: 30px;
+    .play-button-container img {
+        margin-bottom: 80px;
     }
-
 }
 
 
