@@ -247,6 +247,12 @@ body {
         max-width: 400px; /* Anpassad maxbredd */
         text-align: center;
     }
+
+    .play-button-container {
+        
+        margin-bottom: 40px;
+    }
+
 }
 
 
