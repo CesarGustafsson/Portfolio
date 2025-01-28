@@ -1,15 +1,15 @@
 // Image array for the slideshow
 const images = [
-    './bilderochfiler/family.jpg', 
-    './bilderochfiler/bärs.jpg',
-    './bilderochfiler/upandbeyond.jpg',
-    './bilderochfiler/jamesbond.jpg',
-    './bilderochfiler/alkisar.jpg',
-    './bilderochfiler/elefant.jpg',
-    './bilderochfiler/hearts.jpg',
-    './bilderochfiler/snorkel.jpg',
-    './bilderochfiler/goodtimes.jpg',
-    './bilderochfiler/hikes.jpg'
+    'portfolio/bilderochfiler/family.jpg', 
+    'portfolio/bilderochfiler/bärs.jpg',
+    'portfolio/bilderochfiler/upandbeyond.jpg',
+    'portfolio/bilderochfiler/jamesbond.jpg',
+    'portfolio/bilderochfiler/alkisar.jpg',
+    'portfolio/bilderochfiler/elefant.jpg',
+    'portfolio/bilderochfiler/hearts.jpg',
+    'portfolio/bilderochfiler/snorkel.jpg',
+    'portfolio/bilderochfiler/goodtimes.jpg',
+    'portfolio/bilderochfiler/hikes.jpg'
 ];
 
 let currentIndex = 0; // Tracks the current image index
@@ -35,14 +35,14 @@ function toggleSlideshow() {
         backgroundMusic.pause(); // Pause music
         playPauseIcon.style.animation = "rotate 5s linear"; // Smooth animation effect
         playPauseIcon.addEventListener('animationend', () => {
-            playPauseIcon.src = "./bilderochfiler/play.png"; // Switch back to play icon
+            playPauseIcon.src = "portfolio/bilderochfiler/play.png"; // Switch back to play icon
             playPauseIcon.style.animation = "";
         }, { once: true });
         clearInterval(slideshowInterval); // Stop the slideshow
     } else {
         backgroundMusic.play(); // Play music
         slideshowInterval = setInterval(() => updateImage(), 5000); // Start slideshow
-        playPauseIcon.src = "./bilderochfiler/pause.png"; // Switch to pause icon
+        playPauseIcon.src = "portfolio/bilderochfiler/pause.png"; // Switch to pause icon
         playPauseIcon.style.animation = "rotate 5s linear infinite"; // Continuous rotation animation
     }
     isPlaying = !isPlaying;
@@ -79,7 +79,7 @@ document.addEventListener('keydown', (event) => {
 
 // Ensures the play button is in the correct state on page load
 window.addEventListener('load', () => {
-    playPauseIcon.src = "./bilderochfiler/play.png";
+    playPauseIcon.src = "portfolio/bilderochfiler/play.png";
     backgroundMusic.pause();
     isPlaying = false;
 });
