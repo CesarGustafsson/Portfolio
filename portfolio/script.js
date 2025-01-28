@@ -1,7 +1,7 @@
 // Image array for the slideshow
 const images = [
-    'bilderochfiler/family.jpg', 
-    'bilderochfiler/bärs.jpg',
+    'bilderochfiler/family.JPG', 
+    'bilderochfiler/bärs.JPG',
     'bilderochfiler/upandbeyond.jpg',
     'bilderochfiler/jamesbond.jpg',
     'bilderochfiler/alkisar.jpg',
