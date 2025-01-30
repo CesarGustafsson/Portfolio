@@ -231,35 +231,47 @@ body {
         text-align: center;
         gap: 30px;
     }
- 
-    /* Place the image first (top) */
+
+    /* Force all images (including slider) to the same size/aspect ratio */
+    .image-content img,
+    .image-slider img {
+        width: 90%;                /* Scales image nicely within mobile screen */
+        max-width: 400px;          /* Prevents it from getting too large */
+        aspect-ratio: 500 / 370;   /* Maintains the ~1.35 aspect ratio */
+        height: auto;              /* Let the height adjust based on width & aspect ratio */
+        object-fit: cover;         /* Crops/zooms to fill the container if images differ */
+        border-radius: 3px;        /* Keep the same rounding you had before, if desired */
+    }
+
+    /* Order: image first */
     .image-content {
         order: 1;
     }
 
-    /* Place the play button right after the image */
+    /* Then the play button (under the image) */
     .play-button-container {
-        order: -1;
-        margin-top: -90px; /* Adds a bit of space if needed */
+        order: -1;      /* Ensures the button comes right after the image in DOM order */
+        margin-top: -90px; 
     }
 
-    /* Place the text content after the play button */
+    /* Text content last */
     .text-content {
         order: 3;
     }
 
-    /* Adjust widths for smaller screens */
-    .text-content,
-    .image-slider img {
+    /* Adjust widths for the text as well */
+    .text-content {
         width: 90%;
         max-width: 400px;
         text-align: center;
     }
 
+    /* Spacing for the play button image */
     .play-button-container img {
         margin-bottom: 40px;
     }
 }
+
 
 
 /* Image content on the right */
