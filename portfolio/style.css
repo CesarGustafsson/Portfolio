@@ -231,12 +231,7 @@ body {
         text-align: center;
         gap: 30px;
     }
- /* Make all images the same size and maintain aspect ratio */
- .image-content img {
-    width: 100%; /* Ensures images scale properly */
-    height: auto; /* Maintains aspect ratio */
-    object-fit: cover; /* Ensures image covers the container */
-}
+ 
     /* Place the image first (top) */
     .image-content {
         order: 1;
