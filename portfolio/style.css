@@ -223,7 +223,7 @@ body {
     margin-top: 40px;
 }
 
-/* Mobilanpassning */
+/* Mobile */
 @media (max-width: 768px) {
     .main-content {
         flex-direction: column;
@@ -231,24 +231,39 @@ body {
         text-align: center;
         gap: 30px;
     }
-
-    /* Placera bilden överst */
+ /* Make all images the same size and maintain aspect ratio */
+ .image-content img {
+    width: 100%; /* Ensures images scale properly */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Ensures image covers the container */
+}
+    /* Place the image first (top) */
     .image-content {
-        order: -1;
+        order: 1;
     }
 
-    /* Samma bredd för bild och text */
+    /* Place the play button right after the image */
+    .play-button-container {
+        order: -1;
+        margin-top: -90px; /* Adds a bit of space if needed */
+    }
+
+    /* Place the text content after the play button */
+    .text-content {
+        order: 3;
+    }
+
+    /* Adjust widths for smaller screens */
     .text-content,
     .image-slider img {
-        width: 90%; /* Gör elementen mindre på mobilen */
-        max-width: 400px; /* Anpassad maxbredd */
+        width: 90%;
+        max-width: 400px;
         text-align: center;
     }
 
     .play-button-container img {
         margin-bottom: 40px;
     }
-    
 }
 
 
