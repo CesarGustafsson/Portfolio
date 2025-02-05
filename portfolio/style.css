@@ -1,4 +1,4 @@
-/* Importing Montserrat font with different weights */
+/* Importing Montserrat font with different weights */ 
 @font-face {
     font-family: 'Montserrat';
     src: url('./montserrat/Montserrat-Bold.ttf') format('truetype');
@@ -104,32 +104,53 @@ body {
 
 /* Image styling */
 .BRs1 {
-    width: 500px;
+    width: 530px;
     height: 370px;
     object-fit: cover;
     border-radius: 3px;
 }
 
-/* Play button styling */
-.play-button-container {
-    display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    width: 100%; /* Ensures full width */
-    margin-top: -40px; /* Adds spacing below the text */
+/* Image slider container */
+.image-slider {
+    position: relative;
 }
 
+/* Play/Pause button container – centrerad i bildspelets canvas med fast hit-area */
+.play-button-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+}
 
-.play-button-container img {
+/* Play/Pause icon styling – inverterade färger, ingen border */
+#play-pause-icon {
     width: 50px;
     height: 50px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    filter: invert(1);
+    opacity: 1;
 }
 
-/* Hover effect for play button */
-.play-button-container img:hover {
+/* Hover-effekt för play-/pause-ikonen (förstora lite vid hover) */
+#play-pause-icon:hover {
     transform: scale(1.1);
+}
+
+/* När slideshow är igång (klassen "playing" på containern) ska ikonen vara dold */
+.play-button-container.playing #play-pause-icon {
+    opacity: 0;
+}
+
+/* På enheter med hover-stöd visas ikonen vid hover */
+@media (hover: hover) and (pointer: fine) {
+  .play-button-container.playing:hover #play-pause-icon {
+      opacity: 1;
+  }
 }
 
 /* Bio text section */
@@ -138,34 +159,59 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 30px;
-    max-width: 750px;
+    max-width: 900px;
 }
 
 /* Section title */
 .Who {
-    font-size: 44px;
-    font-weight: 700;
+    font-size: 26px;
+    font-weight: 400;
     font-family: 'Montserrat', sans-serif;
-    color: black;
-    margin-bottom: 20px;
-    margin-top: 15px;
+    color: #A9A9A9;
+    margin-bottom: -30px;
 }
 
 /* Updated shorter class name for bio text */
 .BioText {
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 45px;
+    font-weight: 700;
     font-family: 'Montserrat', sans-serif;
     color: black;
-    max-width: 430px;
-    text-align: justify;
+    max-width: 530px;
 }
 
 /* Bold text */
 .bold-text {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+}
+
+/* Image content on the right */
+.image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Text content on the left */
+.text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    max-width: 700px;
+}
+
+/* Main content container: Text på vänster sida, bild på höger sida */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    max-width: 1140px;
 }
 
 /* Ensure the contact section is centered */
@@ -179,7 +225,6 @@ body {
     justify-content: center;
     z-index: 1000; /* Säkerställer att det är över andra element */
 }
-
 
 /* Contact heading */
 .Contact {
@@ -206,8 +251,6 @@ body {
     transform: scale(1.2);
 }
 
-
-
 @keyframes rotate {
     0% {
         transform: rotate(0deg);
@@ -215,12 +258,6 @@ body {
     100% {
         transform: rotate(360deg);
     }
-}
-
-#play-pause-icon {
-    transition: transform 0.3s ease;
-    animation: none; /* Ingen snurrning som standard */
-    margin-top: 40px;
 }
 
 /* Mobile */
@@ -248,12 +285,6 @@ body {
         order: 1;
     }
 
-    /* Then the play button (under the image) */
-    .play-button-container {
-        order: -1;      /* Ensures the button comes right after the image in DOM order */
-        margin-top: -90px; 
-    }
-
     /* Text content last */
     .text-content {
         order: 3;
@@ -263,42 +294,6 @@ body {
     .text-content {
         width: 90%;
         max-width: 400px;
-        text-align: center;
+        text-align: left;
     }
-
-    /* Spacing for the play button image */
-    .play-button-container img {
-        margin-bottom: 40px;
-    }
-}
-
-
-
-/* Image content on the right */
-.image-content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Text content on the left */
-.text-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    max-width: 500px;
-}
-
-
-/* Main content container: Text on the left, image on the right */
-.main-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 70px;
-    max-width: 1040px;
 }

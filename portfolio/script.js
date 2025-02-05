@@ -1,6 +1,6 @@
 // Image array for the slideshow
 const images = [
-    'bilderochfiler/family.JPG', 
+    'bilderochfiler/family.jpg', 
     'bilderochfiler/upandbeyond.jpg',
     'bilderochfiler/jamesbond.jpg',
     'bilderochfiler/alkisar.jpg',
@@ -8,79 +8,94 @@ const images = [
     'bilderochfiler/hikes.jpg'
 ];
 
-let currentIndex = 0; // Tracks the current image index
-let slideshowInterval = null; // Stores the interval ID for the slideshow
-let isPlaying = false; // Indicates whether the slideshow is playing
+let currentIndex = 0;           // Tracks the current image index
+let slideshowInterval = null;   // Stores the interval ID for the slideshow
+let isPlaying = false;          // Indicates whether the slideshow is playing
 
-const imageElement = document.getElementById('scrollable-image'); // Image element
-const playPauseIcon = document.getElementById('play-pause-icon'); // Play/Pause button
-const backgroundMusic = document.getElementById('background-music'); // Background music element
+const imageElement = document.getElementById('scrollable-image');       // Bild-elementet
+const playPauseIcon = document.getElementById('play-pause-icon');        // Play-/Pause-ikonen
+const backgroundMusic = document.getElementById('background-music');     // Bakgrundsmusiken
+const playContainer = document.querySelector('.play-button-container');   // Containern för play-/pause-knappen
 
-// Function to update the displayed image
+// Funktion för att uppdatera den visade bilden
 function updateImage(index = currentIndex + 1) {
-    currentIndex = index % images.length; // Loops back when reaching the end
+    currentIndex = index % images.length;
     if (currentIndex < 0) {
-        currentIndex = images.length - 1; // Loops back to the last image if negative
+        currentIndex = images.length - 1;
     }
     imageElement.src = images[currentIndex];
 }
 
-// Function to start/stop the slideshow and music
+// Funktion för att toggla slideshow och musik
 function toggleSlideshow() {
     if (isPlaying) {
-        backgroundMusic.pause(); // Pause music
-        playPauseIcon.style.animation = "rotate 5s linear"; // Smooth animation effect
-        playPauseIcon.addEventListener('animationend', () => {
-            playPauseIcon.src = "bilderochfiler/play.png"; // Switch back to play icon
-            playPauseIcon.style.animation = "";
-        }, { once: true });
-        clearInterval(slideshowInterval); // Stop the slideshow
+        // Pausa slideshow och musik
+        backgroundMusic.pause();
+        clearInterval(slideshowInterval);
+        isPlaying = false;
+        // Visa play-ikonen (ta bort "playing"-klassen)
+        playPauseIcon.src = "bilderochfiler/play.png";
+        playContainer.classList.remove('playing');
     } else {
-        backgroundMusic.play(); // Play music
-        slideshowInterval = setInterval(() => updateImage(), 5000); // Start slideshow
-        playPauseIcon.src = "bilderochfiler/pause.png"; // Switch to pause icon
-        playPauseIcon.style.animation = "rotate 5s linear infinite"; // Continuous rotation animation
+        // Starta slideshow och musik
+        backgroundMusic.play();
+        slideshowInterval = setInterval(() => updateImage(), 5000);
+        isPlaying = true;
+        // Sätt paus-ikonen (via src) och lägg på "playing"-klassen så att ikonen normalt är dold
+        playPauseIcon.src = "bilderochfiler/pause.png";
+        playContainer.classList.add('playing');
     }
-    isPlaying = !isPlaying;
 }
 
-// Event listener for play/pause button
-playPauseIcon.addEventListener('click', toggleSlideshow);
+// Klick på play-/pause-ikonen (eller dess container) togglar slideshow
+playPauseIcon.addEventListener('click', (e) => {
+    e.stopPropagation(); // Förhindra att evenemanget bubblar
+    toggleSlideshow();
+});
+playContainer.addEventListener('click', toggleSlideshow);
 
-// Event listener for keyboard navigation
+// Klick på bilden pausar slideshow (om den är igång) och visar play-ikonen
+imageElement.addEventListener('click', () => {
+    if (isPlaying) {
+        toggleSlideshow();
+    }
+});
+
+// Event listener för tangentbordsnavigering
 document.addEventListener('keydown', (event) => {
     if (event.code === 'Space') {
-        toggleSlideshow(); // Toggle slideshow on spacebar press
-        event.preventDefault(); // Prevent page scrolling
+        toggleSlideshow();
+        event.preventDefault();
     } else if (event.code === 'ArrowRight') {
         if (isPlaying) {
-            clearInterval(slideshowInterval); // Restart timer
+            clearInterval(slideshowInterval);
             updateImage(currentIndex + 1);
             slideshowInterval = setInterval(() => updateImage(), 5000);
         } else {
-            updateImage(currentIndex + 1); // Next image manually
+            updateImage(currentIndex + 1);
         }
         event.preventDefault();
     } else if (event.code === 'ArrowLeft') {
         if (isPlaying) {
             clearInterval(slideshowInterval);
-            updateImage(currentIndex - 1); // Previous image
+            updateImage(currentIndex - 1);
             slideshowInterval = setInterval(() => updateImage(), 5000);
         } else {
-            updateImage(currentIndex - 1); // Previous image manually
+            updateImage(currentIndex - 1);
         }
         event.preventDefault();
     }
 });
 
-// Ensures the play button is in the correct state on page load
+// Säkerställ att play-ikonen är korrekt vid sidladdning
 window.addEventListener('load', () => {
     playPauseIcon.src = "bilderochfiler/play.png";
     backgroundMusic.pause();
     isPlaying = false;
+    playContainer.classList.remove('playing');
 });
 
-// Navbar scroll effect (adds a border when scrolling)
+// Navbar scroll-effekt (lägger till en border vid scroll)
 document.addEventListener("scroll", function () {
     const nav = document.querySelector(".nav");
     if (window.scrollY > 0) {
