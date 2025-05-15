@@ -30,6 +30,40 @@
     <!-- Main project content container -->
     <div class="LandingPage">
 
+ <!-- First project: Poster Design for UN Day -->
+        <div class="main-content">
+            <div class="text-content">
+                <h1>SITE REDESIGN</h1>
+                <p>This was my first project with a real client where the client requested a design makeover for his website for his bar/restaurant.
+                I started of by making simple mockups by hand that I presented to the client. Later I created a prototype in figma and showcased it to the client.
+                    The client approved of the design and I started working on the wordpress builder website. 
+                      <br><br>
+                    Some limitations that I faced during this project was that the client had a free theme heavily
+                    restricting the design process, for example it was not possible to drag and drop elements freely around the canvas without code and that limitation combined with a limited time schedule set by the client
+                    I went for a centered design where everything was focused in the middle.  
+                <br><br>
+                    I aimed to convey a more minimalistic and premium feeling in the clients brand by using clear and formal colors (White and black) combined with his brands color
+                red. I tried using the color red as little as possible as I thought red wasn't a good color for his brands identity but the client expressed that he didn't want to change his graphic profile.
+                </p>
+        
+                <p>Feel free to press the image to download pictures of before and after the design and follow the following links to my figma prototype file and the actual website!
+                    
+                <a href="https://www.figma.com/design/EC3bwjvt8E1UeC0jxq28Zx/Untitled?node-id=0-1&t=2KvpsktTKD9Lgh6m-1" target="_blank">Figma prototype</a>
+            <a href="https://wakuwakubar.se/" target="_blank">wakuwakubar.se</a></p>
+            </div>
+            <!-- Downloadable PDF and AI poster -->
+           <div class="image-content">
+    <a id="waku-download"> <!-- Uppdaterat ID -->
+        <img src="bilderochfiler/waku_about_pic.png" alt="Waku redesign bilder">
+    </a>
+</div>
+        </div>
+
+        <!-- Divider between first and second project -->
+        <hr class="divider">
+
+
+
         <!-- First project: Poster Design for UN Day -->
         <div class="main-content">
             <div class="text-content">
@@ -40,7 +74,6 @@
                 <br><br>
                     I aimed for a dynamic composition by carefully placing text and elements in a crossing layout, 
                     enhancing the visual movement and reinforcing the Bauhaus aesthetic.
-                    <br> <br> Click on the picture to access this project!
                 </p>
             </div>
             <!-- Downloadable PDF and AI poster -->
@@ -65,7 +98,7 @@
                     I aimed for consistency by maintaining uniform border radius, stroke, colors, and layout wherever possible, 
                     making the interface more predictable and user-friendly.
                 <br><br>
-                Click on the picture to gain access to my Figma prototype and check out the official website here: <a href="https://www.hjartstartarregistret.se/#/" target="_blank">hjartstartarregistret.se</a> to compare with my approach.
+                    You can check out the official service here: <a href="https://www.hjartstartarregistret.se/#/" target="_blank">hjartstartarregistret.se</a> to compare with my approach.
                 </p>
             </div>
             <!-- Link to the Figma prototype -->
@@ -88,14 +121,11 @@
                 <br><br>
                     We designed pixelated visuals similar to the original game to leverage affordances and recognition, making it instantly familiar. 
                     To enhance discoverability, we ensured real-time feedback through visual and audio cues, reinforcing the connection between input and action.
-                    <br><br> Click on the picture to access this project!
                 </p>
             </div>
             <!-- Flappy Bird game preview -->
             <div class="image-content yappy-image">
-                <a href="https://cesargustafsson.github.io/Yappy-Bird/" target="_blank">
                 <img src="bilderochfiler/flappy_bird.png" alt="Flappy Bird image">
-            </a>
             </div>
         </div>
 
@@ -146,6 +176,36 @@
             event.preventDefault(); // Förhindra standardbeteendet
             downloadPosterFiles(); // Kör funktionen för att ladda ner filerna
         });
+
+        // Uppdaterad funktion för Waku-filer
+    function downloadPosterFiles() {
+        const files = [
+            "bilderochfiler/waku_about_pic.png",
+            "bilderochfiler/waku_index_reservation_pic.png",
+            "bilderochfiler/waku-contact.pdf",
+            "bilderochfiler/waku-dinner.pdf",
+            "bilderochfiler/waku-landing.pdf",
+            "bilderochfiler/waku-lunch.pdf",
+            "bilderochfiler/waku-wines.pdf",
+            "bilderochfiler/waku_menu_pic.png",
+            "bilderochfiler/waku-drink.pdf"
+        ];
+
+        files.forEach(file => {
+            const link = document.createElement("a");
+            link.href = file;
+            link.download = file.split("/").pop();
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    }
+
+    // Uppdaterad event listener för Waku-bilden
+document.getElementById("waku-download").addEventListener("click", function (event) {
+    event.preventDefault();
+    downloadPosterFiles();
+});
     </script>
 
 </body>
