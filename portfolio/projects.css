@@ -224,6 +224,14 @@ body {
     border: 1px solid black;
 }
 
+.image-content img[src="bilderochfiler/waku_about_pic.png"] {
+    border: 1px solid black;
+    margin-top: 120px;
+   max-width: 320px; /* Limits image width */
+    width: 100%; /* Ensures responsiveness */
+    max-height: fit-content;
+}
+
 /* Responsive styles for smaller screens */
 @media (max-width: 768px) {
     .main-content {
