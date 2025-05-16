@@ -115,6 +115,15 @@ body {
     position: relative;
 }
 
+.image-content img[src="bilderochfiler/cv.bild.main.museet.transparent.png"] {
+   max-width: 230px;
+    max-height: 370px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-height: fit-content;
+}
+
 /* Play/Pause button container – centrerad i bildspelets canvas med fast hit-area */
 .play-button-container {
     position: absolute;
@@ -164,7 +173,7 @@ body {
 
 /* Section title */
 .Who {
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 400;
     font-family: 'Montserrat', sans-serif;
     color: #A9A9A9;
@@ -173,7 +182,7 @@ body {
 
 /* Updated shorter class name for bio text */
 .BioText {
-    font-size: 45px;
+    font-size: 40px;
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
     color: black;
@@ -202,6 +211,7 @@ body {
     align-items: flex-start;
     text-align: left;
     max-width: 700px;
+    margin-left: 100px;
 }
 
 /* Main content container: Text på vänster sida, bild på höger sida */

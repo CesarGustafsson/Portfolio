@@ -1,5 +1,6 @@
 // Image array for the slideshow
 const images = [
+    'bilderochfiler/cv.bild.main.museet.transparent.png',
     'bilderochfiler/family.JPG', 
     'bilderochfiler/upandbeyond.jpg',
     'bilderochfiler/jamesbond.jpg',
