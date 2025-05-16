@@ -1,6 +1,6 @@
 // Image array for the slideshow
-const images = [
-    'bilderochfiler/cv.bild.main.museet.transparent.png',
+const images = [ 
+    'bilderochfiler/cv.bild.main.museet.transparent.png', 
     'bilderochfiler/family.JPG', 
     'bilderochfiler/upandbeyond.jpg',
     'bilderochfiler/jamesbond.jpg',
@@ -13,95 +13,83 @@ let currentIndex = 0;           // Tracks the current image index
 let slideshowInterval = null;   // Stores the interval ID for the slideshow
 let isPlaying = false;          // Indicates whether the slideshow is playing
 
-const imageElement = document.getElementById('scrollable-image');       // Bild-elementet
-const playPauseIcon = document.getElementById('play-pause-icon');        // Play-/Pause-ikonen
-const backgroundMusic = document.getElementById('background-music');     // Bakgrundsmusiken
-const playContainer = document.querySelector('.play-button-container');   // Containern för play-/pause-knappen
+const imageElement    = document.getElementById('scrollable-image');
+const playPauseIcon   = document.getElementById('play-pause-icon');
+const backgroundMusic = document.getElementById('background-music');
+const playContainer   = document.querySelector('.play-button-container');
 
-// Funktion för att uppdatera den visade bilden
-function updateImage(index = currentIndex + 1) {
-    currentIndex = index % images.length;
-    if (currentIndex < 0) {
-        currentIndex = images.length - 1;
+// Uppdaterar bilden baserat på index (eller nästa om inget anges)
+function updateImage(index) {
+    if (index === undefined) {
+        index = currentIndex + 1;
     }
+    currentIndex = ((index % images.length) + images.length) % images.length;
     imageElement.src = images[currentIndex];
 }
 
-// Funktion för att toggla slideshow och musik
+// Toggle-funktion för slideshow + musik
 function toggleSlideshow() {
     if (isPlaying) {
-        // Pausa slideshow och musik
+        // Pausa
         backgroundMusic.pause();
         clearInterval(slideshowInterval);
         isPlaying = false;
-        // Visa play-ikonen (ta bort "playing"-klassen)
         playPauseIcon.src = "bilderochfiler/play.png";
         playContainer.classList.remove('playing');
     } else {
-        // Starta slideshow och musik
+        // Starta
         backgroundMusic.play();
-        slideshowInterval = setInterval(() => updateImage(), 5000);
         isPlaying = true;
-        // Sätt paus-ikonen (via src) och lägg på "playing"-klassen så att ikonen normalt är dold
         playPauseIcon.src = "bilderochfiler/pause.png";
         playContainer.classList.add('playing');
+
+        // Starta intervallet först efter 5s – då byter den från currentIndex (0) till nästa
+        slideshowInterval = setInterval(() => updateImage(), 5000);
     }
 }
 
-// Klick på play-/pause-ikonen (eller dess container) togglar slideshow
-playPauseIcon.addEventListener('click', (e) => {
-    e.stopPropagation(); // Förhindra att evenemanget bubblar
+// Event-listeners
+playPauseIcon.addEventListener('click', e => {
+    e.stopPropagation();
     toggleSlideshow();
 });
 playContainer.addEventListener('click', toggleSlideshow);
 
-// Klick på bilden pausar slideshow (om den är igång) och visar play-ikonen
 imageElement.addEventListener('click', () => {
-    if (isPlaying) {
-        toggleSlideshow();
-    }
+    if (isPlaying) toggleSlideshow();
 });
 
-// Event listener för tangentbordsnavigering
-document.addEventListener('keydown', (event) => {
+document.addEventListener('keydown', event => {
     if (event.code === 'Space') {
         toggleSlideshow();
         event.preventDefault();
-    } else if (event.code === 'ArrowRight') {
-        if (isPlaying) {
-            clearInterval(slideshowInterval);
-            updateImage(currentIndex + 1);
-            slideshowInterval = setInterval(() => updateImage(), 5000);
-        } else {
-            updateImage(currentIndex + 1);
-        }
+    }
+    if (event.code === 'ArrowRight') {
+        clearInterval(slideshowInterval);
+        updateImage(currentIndex + 1);
+        if (isPlaying) slideshowInterval = setInterval(() => updateImage(), 5000);
         event.preventDefault();
-    } else if (event.code === 'ArrowLeft') {
-        if (isPlaying) {
-            clearInterval(slideshowInterval);
-            updateImage(currentIndex - 1);
-            slideshowInterval = setInterval(() => updateImage(), 5000);
-        } else {
-            updateImage(currentIndex - 1);
-        }
+    }
+    if (event.code === 'ArrowLeft') {
+        clearInterval(slideshowInterval);
+        updateImage(currentIndex - 1);
+        if (isPlaying) slideshowInterval = setInterval(() => updateImage(), 5000);
         event.preventDefault();
     }
 });
 
-// Säkerställ att play-ikonen är korrekt vid sidladdning
+// Init vid sidladdning
 window.addEventListener('load', () => {
-    playPauseIcon.src = "bilderochfiler/play.png";
+    // Visa första bilden (museet)
+    imageElement.src = images[0];
+    playPauseIcon.src   = "bilderochfiler/play.png";
     backgroundMusic.pause();
     isPlaying = false;
     playContainer.classList.remove('playing');
 });
 
-// Navbar scroll-effekt (lägger till en border vid scroll)
-document.addEventListener("scroll", function () {
+// Navbar scroll-effekt
+document.addEventListener("scroll", () => {
     const nav = document.querySelector(".nav");
-    if (window.scrollY > 0) {
-        nav.classList.add("scrolled");
-    } else {
-        nav.classList.remove("scrolled");
-    }
+    nav.classList.toggle("scrolled", window.scrollY > 0);
 });
