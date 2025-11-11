@@ -135,7 +135,7 @@ body {
     align-items: center;
 }
 #profile-image {
-    width: 320px;          /* Balans mellan text och bild */
+    width: 200px;          /* Balans mellan text och bild */
     height: auto;
     object-fit: contain;   /* Ser till att hela bilden syns */
     border-radius: 3px;
@@ -181,7 +181,7 @@ body {
         gap: 30px;
     }
 
-.image-content img {
+    .image-content img {
         width: 80%;
         max-width: 280px;
         height: auto;
