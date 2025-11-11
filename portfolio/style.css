@@ -30,7 +30,7 @@ body {
     min-height: 100vh;
 }
 
-/* Landing page container */
+/* Landing page */
 .LandingPage {
     width: 100%;
     max-width: 1280px;
@@ -94,7 +94,7 @@ body {
     transform: scale(1.1);
 }
 
-/* Main content: text left, image right */
+/* Main content layout */
 .main-content {
     display: flex;
     justify-content: center;
@@ -104,7 +104,7 @@ body {
     max-width: 1140px;
 }
 
-/* Text */
+/* Text section */
 .text-content {
     flex: 1;
     display: flex;
@@ -126,21 +126,18 @@ body {
     color: black;
     max-width: 530px;
 }
-.bold-text {
-    font-weight: 700;
-}
 
-/* Image */
+/* Image section */
 .image-content {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.BRs1, #profile-image {
-    width: 530px;
-    height: 370px;
-    object-fit: cover;
+#profile-image {
+    width: 320px;          /* Balans mellan text och bild */
+    height: auto;
+    object-fit: contain;   /* Ser till att hela bilden syns */
     border-radius: 3px;
     max-width: 100%;
 }
@@ -175,7 +172,7 @@ body {
     transform: scale(1.2);
 }
 
-/* Mobile */
+/* Mobile responsiveness */
 @media (max-width: 768px) {
     .main-content {
         flex-direction: column;
@@ -184,23 +181,23 @@ body {
         gap: 30px;
     }
 
-    .image-content img {
-        width: 90%;
-        max-width: 400px;
-        aspect-ratio: 500 / 370;
+.image-content img {
+        width: 80%;
+        max-width: 280px;
         height: auto;
-        object-fit: cover;
+        object-fit: contain;
         border-radius: 3px;
     }
 
     .image-content {
         order: 1;
     }
+
     .text-content {
         order: 3;
         width: 90%;
         max-width: 400px;
-        text-align: left;
+        text-align: center;
         margin-left: 0;
     }
 }
