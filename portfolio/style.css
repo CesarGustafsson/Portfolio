@@ -1,23 +1,21 @@
-/* Importing Montserrat font with different weights */ 
+/* Montserrat font */
 @font-face {
     font-family: 'Montserrat';
     src: url('./montserrat/Montserrat-Bold.ttf') format('truetype');
     font-weight: 700;
 }
-
 @font-face {
     font-family: 'Montserrat';
     src: url('./montserrat/Montserrat-Medium.ttf') format('truetype');
     font-weight: 500;
 }
-
 @font-face {
     font-family: 'Montserrat';
     src: url('./montserrat/Montserrat-Regular.ttf') format('truetype');
     font-weight: 400;
 }
 
-/* Global styling */
+/* Global */
 body {
     margin: 0;
     padding: 0;
@@ -29,7 +27,7 @@ body {
     justify-content: space-between;
     flex-direction: column;
     overflow-y: scroll;
-    min-height: 100vh; /* Se till att body tar upp hela höjden */
+    min-height: 100vh;
 }
 
 /* Landing page container */
@@ -41,7 +39,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 200px;
-    flex-grow: 1; /* Gör så att LandingPage tar upp utrymme */
+    flex-grow: 1;
 }
 
 /* Navigation bar */
@@ -53,8 +51,7 @@ body {
     top: 0;
     width: 100%;
     background-color: white;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    padding: 20px 0;
     justify-content: center;
     z-index: 1000;
     border-bottom: 0;
@@ -65,9 +62,8 @@ body {
     border-bottom: 1px solid #D3D3D3;
 }
 
-/* Title styling */
+/* Title */
 .CesarGustafsson {
-    font-family: 'Montserrat';
     font-weight: 700;
     font-size: 42px;
     color: black;
@@ -75,7 +71,6 @@ body {
     margin-top: 40px;
     text-align: center;
 }
-
 .CesarGustafsson a {
     text-decoration: none;
     color: black;
@@ -87,7 +82,6 @@ body {
     gap: 20px;
     justify-content: center;
 }
-
 .nav-links a {
     font-size: 13px;
     font-weight: 500;
@@ -95,126 +89,12 @@ body {
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
 }
-
-/* Hover effect for navigation links */
 .nav-links a:hover {
     color: #757575;
     transform: scale(1.1);
 }
 
-/* Image styling */
-.BRs1 {
-    width: 530px;
-    height: 370px;
-    object-fit: cover;
-    border-radius: 3px;
-}
-
-/* Image slider container */
-.image-slider {
-    position: relative;
-}
-
-.image-content img[src="bilderochfiler/cv.bild.main.museet.transparent.png"] {
-   max-width: 230px;
-    max-height: 370px;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    max-height: fit-content;
-}
-
-/* Play/Pause button container – centrerad i bildspelets canvas med fast hit-area */
-.play-button-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    width: 50px;
-    height: 50px;
-}
-
-/* Play/Pause icon styling – inverterade färger, ingen border */
-#play-pause-icon {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    filter: invert(1);
-    opacity: 1;
-}
-
-/* Hover-effekt för play-/pause-ikonen (förstora lite vid hover) */
-#play-pause-icon:hover {
-    transform: scale(1.1);
-}
-
-/* När slideshow är igång (klassen "playing" på containern) ska ikonen vara dold */
-.play-button-container.playing #play-pause-icon {
-    opacity: 0;
-}
-
-/* På enheter med hover-stöd visas ikonen vid hover */
-@media (hover: hover) and (pointer: fine) {
-  .play-button-container.playing:hover #play-pause-icon {
-      opacity: 1;
-  }
-}
-
-/* Bio text section */
-.text-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: 900px;
-}
-
-/* Section title */
-.Who {
-    font-size: 20px;
-    font-weight: 400;
-    font-family: 'Montserrat', sans-serif;
-    color: #A9A9A9;
-    margin-bottom: -30px;
-}
-
-/* Updated shorter class name for bio text */
-.BioText {
-    font-size: 40px;
-    font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
-    color: black;
-    max-width: 530px;
-}
-
-/* Bold text */
-.bold-text {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-}
-
-/* Image content on the right */
-.image-content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Text content on the left */
-.text-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    max-width: 700px;
-    margin-left: 100px;
-}
-
-/* Main content container: Text på vänster sida, bild på höger sida */
+/* Main content: text left, image right */
 .main-content {
     display: flex;
     justify-content: center;
@@ -224,50 +104,75 @@ body {
     max-width: 1140px;
 }
 
-/* Ensure the contact section is centered */
+/* Text */
+.text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    max-width: 700px;
+    margin-left: 100px;
+}
+.Who {
+    font-size: 20px;
+    font-weight: 400;
+    color: #A9A9A9;
+    margin-bottom: -30px;
+}
+.BioText {
+    font-size: 40px;
+    font-weight: 700;
+    color: black;
+    max-width: 530px;
+}
+.bold-text {
+    font-weight: 700;
+}
+
+/* Image */
+.image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.BRs1, #profile-image {
+    width: 530px;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 3px;
+    max-width: 100%;
+}
+
+/* Contact section */
 .contact-group {
     width: 100%;
-    background-color: white; /* Behåll bakgrundsfärgen för synlighet */
-    padding: 0px 0;
+    background-color: white;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 1000; /* Säkerställer att det är över andra element */
+    z-index: 1000;
 }
-
-/* Contact heading */
 .Contact {
     font-size: 14px;
     font-weight: 500;
     color: #9E9E9E;
     margin-bottom: 10px;
 }
-
-/* Social media icons */
 .social-icons {
     display: flex;
     gap: 5px;
 }
-
 .social-icon {
     width: 22px;
     height: 22px;
     transition: transform 0.3s ease;
 }
-
-/* Hover effect for social media icons */
 .social-icon:hover {
     transform: scale(1.2);
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
 }
 
 /* Mobile */
@@ -279,31 +184,23 @@ body {
         gap: 30px;
     }
 
-    /* Force all images (including slider) to the same size/aspect ratio */
-    .image-content img,
-    .image-slider img {
-        width: 90%;                /* Scales image nicely within mobile screen */
-        max-width: 400px;          /* Prevents it from getting too large */
-        aspect-ratio: 500 / 370;   /* Maintains the ~1.35 aspect ratio */
-        height: auto;              /* Let the height adjust based on width & aspect ratio */
-        object-fit: cover;         /* Crops/zooms to fill the container if images differ */
-        border-radius: 3px;        /* Keep the same rounding you had before, if desired */
+    .image-content img {
+        width: 90%;
+        max-width: 400px;
+        aspect-ratio: 500 / 370;
+        height: auto;
+        object-fit: cover;
+        border-radius: 3px;
     }
 
-    /* Order: image first */
     .image-content {
         order: 1;
     }
-
-    /* Text content last */
     .text-content {
         order: 3;
-    }
-
-    /* Adjust widths for the text as well */
-    .text-content {
         width: 90%;
         max-width: 400px;
         text-align: left;
+        margin-left: 0;
     }
 }
