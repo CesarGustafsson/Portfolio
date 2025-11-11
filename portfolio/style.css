@@ -56,8 +56,6 @@ body {
     z-index: 1000;
     border-bottom: 0;
 }
-
-/* Adds a bottom border when scrolling */
 .nav.scrolled {
     border-bottom: 1px solid #D3D3D3;
 }
@@ -135,9 +133,9 @@ body {
     align-items: center;
 }
 #profile-image {
-    width: 200px;          /* Balans mellan text och bild */
+    width: 224px;          /* 30% mindre än tidigare 320px */
     height: auto;
-    object-fit: contain;   /* Ser till att hela bilden syns */
+    object-fit: contain;
     border-radius: 3px;
     max-width: 100%;
 }
@@ -182,8 +180,8 @@ body {
     }
 
     .image-content img {
-        width: 80%;
-        max-width: 280px;
+        width: 70%;          /* mindre även på mobil */
+        max-width: 200px;
         height: auto;
         object-fit: contain;
         border-radius: 3px;
